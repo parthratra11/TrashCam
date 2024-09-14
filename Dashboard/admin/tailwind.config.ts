@@ -12,6 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        lobster: ["Lobster", "cursive"],
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
