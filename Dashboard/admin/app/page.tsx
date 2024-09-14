@@ -48,7 +48,7 @@ const Dashboard = () => {
 
           {/* NOTIFICATIONS */}
           <div className="ml-2 mr-1">
-            <button className="btn btn-ghost">
+            <button className="btn btn-circle bg-base-100">
               <FontAwesomeIcon icon={faBell} className="text-xl" />
             </button>
           </div>
@@ -60,33 +60,62 @@ const Dashboard = () => {
           <div className="lg:col-span-2">
             {/* REPORTS OVERVIEW */}
             Dashboard
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 border border-black">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-1 border border-black">
               <div className=" m-1 card card-body bg-primary h-4 flex justify-center items-center">
-                <h2 className="text-2xl text-gray-100 font-semibold">
+                <h2 className="text-xl font-roboto text-gray-100 font-semibold">
                   Total Reports
                 </h2>
               </div>
               <div className=" m-1 card card-body bg-primary h-4 flex justify-center items-center">
-                <h2 className="text-2xl text-gray-100 font-semibold">
+                <h2 className="text-xl font-roboto text-gray-100 font-semibold">
                   Invalid Reports
                 </h2>
               </div>
               <div className=" m-1 card card-body bg-primary h-4 flex justify-center items-center">
-                <h2 className="text-2xl text-gray-100 font-semibold">
+                <h2 className="text-xl font-roboto text-gray-100 font-semibold">
                   Resolved Reports
                 </h2>
               </div>
               <div className=" m-1 card card-body bg-primary h-4 flex justify-center items-center">
-                <h2 className="text-2xl text-gray-100 font-semibold">
+                <h2 className="text-xl font-roboto text-gray-100 font-semibold">
                   Pending Reports
                 </h2>
               </div>
             </div>
             {/* REPORTS LIST */}
-            <div>Reports</div>
+            <div className="border border-black p-1">
+              Reports
+              {[
+                "Lajpat Nagar, Delhi-110024",
+                "Timarpur, Delhi-110007",
+                "Vijay Nagar, Delhi-110009",
+                "Kalyan Vihar, Delhi-110009",
+                "Dwarka, Delhi-110075",
+                "Rohini, Delhi-110037",
+                "Central Secretariat, Delhi-110069",
+              ].map((location, index) => (
+                <div
+                  className={`card flex flex-row h-10 justify-between items-center p-1 mb-2 ${
+                    index % 2 === 0
+                      ? "bg-base-200"
+                      : "bg-base-100 border border-gray-500"
+                  }`}
+                >
+                  <span className="ml-2 font-sans font-medium">{location}</span>
+                  <div>
+                    <FontAwesomeIcon icon={faLocationDot} className="mr-1" />
+                    <button className="btn btn-xs mx-2 btn-outline px-4">
+                      Details
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           {/* COLUMN 2 */}
           <div>
+            {/* VIEW REPORT */}
+            <div>Hotspot Areas | View Report</div>
             {/* HEATMAP */}
             <div>Heatmap</div>
             {/* LOCATION MAP */}
