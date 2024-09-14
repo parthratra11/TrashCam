@@ -59,7 +59,6 @@ const Dashboard = () => {
           {/* COLUMN 1 */}
           <div className="lg:col-span-2">
             {/* REPORTS OVERVIEW */}
-            Dashboard
             <div className="grid grid-cols-2 md:grid-cols-2 gap-1 border border-black">
               <div className=" m-1 card card-body bg-primary h-4 flex justify-center items-center">
                 <h2 className="text-xl font-roboto text-gray-100 font-semibold">
@@ -113,15 +112,26 @@ const Dashboard = () => {
             </div>
           </div>
           {/* COLUMN 2 */}
-          <div>
+          <div className="border border-black flex flex-col justify-between items-center p-1">
             {/* VIEW REPORT */}
-            <div>Hotspot Areas | View Report</div>
+            <div className="border border-black w-full font-roboto font-semibold pr-2 pl-4 card flex flex-row p-2 justify-between items-center">
+              Hotspot Areas
+              <button className="btn btn-ghost bg-base-200">View Report</button>
+            </div>
             {/* HEATMAP */}
-            <div>Heatmap</div>
+            <div className="card border border-black w-full h-full mt-3 flex justify-center items-center">
+              Heatmap
+            </div>
             {/* LOCATION MAP */}
-            <div>Location Map</div>
+            <div className="card border border-black w-full h-full m-3 flex justify-center items-center">
+              Location Map
+            </div>
             {/* DRONE INSPECTION */}
-            <div>Drone Inspection</div>
+            <div className="card w-full">
+              <button className="btn btn-ghost text-lg bg-primary text-white font-roboto">
+                Drone Inspection
+              </button>
+            </div>
           </div>
         </div>
       </div>
