@@ -24,7 +24,7 @@ const config: Config = {
     themes: [
       {
         "temporary theme": {
-          primary: "#40634a",
+          primary: "#378b4f",
           "primary-focus": "#60806a",
           "primary-content": "#ffffff",
 
@@ -41,7 +41,7 @@ const config: Config = {
           "neutral-content": "#e9e7e7",
 
           "base-100": "#e7eee7",
-          "base-200": "#86a286",
+          "base-200": "#8ccf8c",
           "base-300": "#b9b1b1",
           "base-content": "#100f0f",
 
