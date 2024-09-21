@@ -32,7 +32,7 @@ const config: Config = {
           "secondary-focus": "#cde2c1",
           "secondary-content": "#dfece0",
 
-          accent: "#526b7a",
+          accent: "#ccd1cd",
           "accent-focus": "#bedaf4",
           "accent-content": "#ffffff",
 

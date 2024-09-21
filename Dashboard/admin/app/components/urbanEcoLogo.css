@@ -1,0 +1,9 @@
+.logoContainer {
+  height: 45px;
+}
+
+.logoImage {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
