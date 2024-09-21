@@ -4,8 +4,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBox = () => {
   return (
-    <div className="flex-grow flex items-center mx-4 pr-4">
-      <div className="w-full form-control flex flex-row relative">
+    <div className="flex-grow flex items-center mx-4 border-gray-300">
+      <div className="form-control flex flex-grow relative">
         <input
           type="text"
           placeholder="Search"

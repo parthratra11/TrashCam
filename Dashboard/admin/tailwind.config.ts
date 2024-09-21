@@ -32,7 +32,7 @@ const config: Config = {
           "secondary-focus": "#cde2c1",
           "secondary-content": "#dfece0",
 
-          accent: "#ccd1cd",
+          accent: "#ededed",
           "accent-focus": "#bedaf4",
           "accent-content": "#ffffff",
 
@@ -40,9 +40,9 @@ const config: Config = {
           "neutral-focus": "#272525",
           "neutral-content": "#e9e7e7",
 
-          "base-100": "#e7eee7",
-          "base-200": "#b2d7b2",
-          "base-300": "#e4d795",
+          "base-100": "#fdfdfd",
+          "base-200": "#b9dfb9",
+          "base-300": "f7f2e8",
           "base-content": "#100f0f",
 
           info: "#1c92f2",

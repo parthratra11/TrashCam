@@ -9,7 +9,7 @@ import {
 const IndividualReportDetails = () => {
   return (
     <div>
-      <FontAwesomeIcon icon={faLocationDot} color="#A61F1F" />
+      <FontAwesomeIcon icon={faLocationDot} color="#62280B" />
       <Link
         href="/"
         className="mx-2 px-2 text-xs font-semibold hover:underline justify-center"
