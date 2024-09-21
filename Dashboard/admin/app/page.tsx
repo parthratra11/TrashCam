@@ -20,7 +20,7 @@ const Dashboard = () => {
     <>
       <div className="bg-base-100 p-5">
         {/* HEADER */}
-        <header className="navbar bg-base-200 shadow-lg flex justify-between items-center">
+        <header className="navbar bg-accent shadow-sm flex justify-between items-center">
           <UrbanEcoLogo />
           <SearchBox />
           <LocationDropdown />

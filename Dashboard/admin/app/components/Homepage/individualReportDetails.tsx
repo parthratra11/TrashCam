@@ -11,7 +11,7 @@ const IndividualReportDetails = () => {
     <div>
       <FontAwesomeIcon icon={faLocationDot} color="#A61F1F" />
       <Link
-        href=""
+        href="/"
         className="mx-2 px-2 text-xs font-semibold hover:underline justify-center"
       >
         Details
