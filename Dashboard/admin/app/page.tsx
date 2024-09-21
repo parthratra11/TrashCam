@@ -10,13 +10,15 @@ import HeatMap from "./components/Homepage/MapRedirect/heatMap";
 import ViewReport from "./components/Homepage/viewReport";
 import IndividualReportDetails from "./components/Homepage/individualReportDetails";
 import ReportsOverview from "./components/Homepage/reportsOverview";
+import "./components/Homepage/header.css";
 
 const Dashboard = () => {
   return (
     <>
       <div className="bg-base-100 p-5">
         {/* HEADER */}
-        <header className="navbar bg-accent shadow-sm flex justify-between items-center rounded-md">
+        {/* <header className="navbar bg-accent shadow-sm flex justify-between items-center rounded-md"> */}
+        <header className="navbar bg-accent shadow-sm homepageHeader rounded-md">
           <UrbanEcoLogo />
           <SearchBox />
           <LocationDropdown />
@@ -49,13 +51,13 @@ const Dashboard = () => {
                 "Central Secretariat, Delhi-110069",
               ].map((location, index) => (
                 <div
-                  className={`card flex flex-row h-10 justify-between items-center p-1 mb-2 ${
-                    index % 2 === 0
-                      ? "bg-base-300"
-                      : "bg-base-100 border border-gray-400"
+                  className={`flex flex-row h-10 shadow-md shadow-gray-400 justify-between items-center p-1 mb-3 ${
+                    index % 2 === 0 ? "bg-base-300" : "bg-base-200"
                   }`}
                 >
-                  <span className="ml-2 font-sans font-medium">{location}</span>
+                  <span className="ml-2 font-sans font-medium text-sm">
+                    {location}
+                  </span>
 
                   {/* DETAILS REDIRECT */}
                   <IndividualReportDetails />
