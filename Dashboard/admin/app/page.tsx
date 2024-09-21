@@ -1,19 +1,15 @@
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import UrbanEcoLogo from "./components/urbanEcoLogo";
-import SearchBox from "./components/Homepage/searchBox";
-import LocationDropdown from "./components/Homepage/locationDropdown";
-import NotificationIcon from "./components/Homepage/notificationIcon";
+import SearchBox from "./components/Homepage/Header/searchBox";
+import LocationDropdown from "./components/Homepage/Header/locationDropdown";
+import NotificationIcon from "./components/Homepage/Header/notificationIcon";
 import DroneInspection from "./components/Homepage/droneInspection";
-import LocationMap from "./components/Homepage/locationMap";
-import HeatMap from "./components/Homepage/heatMap";
+import LocationMap from "./components/Homepage/MapRedirect/locationMap";
+import HeatMap from "./components/Homepage/MapRedirect/heatMap";
 import ViewReport from "./components/Homepage/viewReport";
-import TotalReports from "./components/Homepage/totalReports";
-import InvalidReports from "./components/Homepage/invalidReports";
-import ResolvedReports from "./components/Homepage/resolvedReports";
-import PendingReports from "./components/Homepage/pendingReports";
 import IndividualReportDetails from "./components/Homepage/individualReportDetails";
+import ReportsOverview from "./components/Homepage/reportsOverview";
 
 const Dashboard = () => {
   return (
@@ -32,12 +28,7 @@ const Dashboard = () => {
           {/* COLUMN 1 */}
           <div className="lg:col-span-2">
             {/* REPORTS OVERVIEW */}
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-1">
-              <TotalReports />
-              <InvalidReports />
-              <ResolvedReports />
-              <PendingReports />
-            </div>
+            <ReportsOverview />
 
             {/* REPORTS LIST */}
             <div className="p-1">
