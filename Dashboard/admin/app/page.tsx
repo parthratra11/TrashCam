@@ -20,7 +20,7 @@ const Dashboard = () => {
     <>
       <div className="bg-base-100 p-5">
         {/* HEADER */}
-        <header className="navbar bg-accent shadow-sm flex justify-between items-center">
+        <header className="navbar bg-accent shadow-sm flex justify-between items-center rounded-md">
           <UrbanEcoLogo />
           <SearchBox />
           <LocationDropdown />
@@ -61,7 +61,7 @@ const Dashboard = () => {
                   className={`card flex flex-row h-10 justify-between items-center p-1 mb-2 ${
                     index % 2 === 0
                       ? "bg-base-300"
-                      : "bg-base-100 border border-gray-500"
+                      : "bg-base-100 border border-gray-400"
                   }`}
                 >
                   <span className="ml-2 font-sans font-medium">{location}</span>
