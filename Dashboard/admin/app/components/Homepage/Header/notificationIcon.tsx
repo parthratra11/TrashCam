@@ -4,7 +4,7 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 const NotificationIcon = () => {
   return (
-    <div className="ml-3">
+    <div className="ml-2">
       <button className="btn btn-circle bg-base-100 border-gray-300 hover:border-gray-500 hover:bg-base-100">
         <FontAwesomeIcon icon={faBell} className="text-xl" />
       </button>
