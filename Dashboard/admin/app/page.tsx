@@ -11,6 +11,7 @@ import ViewReport from "./components/Homepage/viewReport";
 import IndividualReportDetails from "./components/Homepage/individualReportDetails";
 import ReportsOverview from "./components/Homepage/reportsOverview";
 import "./components/Homepage/header.css";
+import HelpMenu from "./components/Homepage/Header/helpMenu";
 
 const Dashboard = () => {
   return (
@@ -23,6 +24,7 @@ const Dashboard = () => {
           <SearchBox />
           <LocationDropdown />
           <NotificationIcon />
+          <HelpMenu />
         </header>
 
         {/* MAIN-DASHBOARD */}
