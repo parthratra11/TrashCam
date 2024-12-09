@@ -35,28 +35,28 @@ export default function LocationDropdown({
 
   const fetchLocation = async () => {
     try {
-      // Request location permissions
+      //   LOCATION PERMISSIONS
       const { status } = await Location.requestForegroundPermissionsAsync();
 
       if (status !== "granted") {
-        // If permission denied, switch to manual input
+        // MANUAL INPUT INCASE LOCATION PERMISSION NOT ALLOWED
         setManualInput(true);
         setCurrentCity("Location Access Denied");
         setLoading(false);
         return;
       }
 
-      // Get current location
+      //   CURRENT LOCATION
       const { coords } = await Location.getCurrentPositionAsync({});
       const { latitude, longitude } = coords;
 
-      // Reverse geocode to get the city
+      //   CITY FROM GEOCODE
       const [location] = await Location.reverseGeocodeAsync({
         latitude,
         longitude,
       });
 
-      // Prioritize city, then district, then fallback to country
+      // PRIORITY ORDER: CITY > DISTRICT > COUNTRY
       const detectedCity =
         location.city ||
         location.district ||
@@ -64,12 +64,13 @@ export default function LocationDropdown({
         location.country ||
         "Unknown Location";
 
+      // UPDATE CITY AND SET LOADING TO FALSE
       setCurrentCity(detectedCity);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching location:", error);
 
-      // If any error occurs during location fetching
+      //   INCASE OF ERRORS
       Alert.alert(
         "Location Error",
         "Unable to automatically detect location. Please enter manually."
@@ -77,6 +78,7 @@ export default function LocationDropdown({
 
       setManualInput(true);
       setCurrentCity("Select Location");
+      //   IN CASE OF ERROR
       setLoading(false);
     }
   };
@@ -93,17 +95,31 @@ export default function LocationDropdown({
   return (
     <View style={styles.container}>
       <View style={styles.locationRow}>
-        <AntDesign name="enviroment" size={24} color="black" />
+        <AntDesign name="enviroment" size={28} color="black" />
         {loading ? (
           <ActivityIndicator
             size="small"
             color="black"
             style={styles.loadingIndicator}
           />
+        ) : manualInput ? (
+          <TextInput
+            style={styles.input}
+            placeholder="Enter Location"
+            value={customCity}
+            onChangeText={setCustomCity}
+          />
         ) : (
+          <Text style={styles.currentCityText}>{currentCity}</Text>
+        )}
+        {!manualInput && (
           <SelectDropdown
-            data={cities}
-            defaultButtonText={currentCity}
+            data={
+              currentCity && !cities.includes(currentCity)
+                ? [currentCity, ...cities]
+                : cities
+            }
+            defaultButtonText="Select Location"
             buttonStyle={styles.dropdownButton}
             buttonTextStyle={styles.dropdownButtonText}
             onSelect={(selectedItem) => setCurrentCity(selectedItem)}
@@ -114,13 +130,14 @@ export default function LocationDropdown({
             )}
           />
         )}
-        <TouchableOpacity onPress={toggleManualInput} style={styles.editButton}>
+        {/* TODO: Manual location input */}
+        {/* <TouchableOpacity onPress={toggleManualInput} style={styles.editButton}>
           <AntDesign
             name={manualInput ? "close" : "edit"}
             size={20}
             color="gray"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -128,11 +145,12 @@ export default function LocationDropdown({
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    margin: 0,
   },
   locationRow: {
     flexDirection: "row",
     alignItems: "center",
+    // marginLeft: 2,
   },
   loadingIndicator: {
     marginHorizontal: 5,
@@ -151,33 +169,14 @@ const styles = StyleSheet.create({
   editButton: {
     marginLeft: 10,
   },
-  manualInputContainer: {
-    marginTop: 10,
-  },
-  label: {
-    fontSize: hp(2),
-    color: "black",
-    marginBottom: 5,
-  },
   input: {
     borderWidth: 1,
     borderColor: "gray",
     borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    marginLeft: 5,
     fontSize: hp(2),
     color: "black",
-  },
-  submitButton: {
-    marginTop: 10,
-    // backgroundColor: "#3498db",
-    paddingVertical: 10,
-    borderRadius: 5,
-    alignItems: "center",
-  },
-  submitButtonText: {
-    color: "white",
-    fontSize: hp(2),
-    fontWeight: "bold",
   },
 });
