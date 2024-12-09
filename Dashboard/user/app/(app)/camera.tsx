@@ -9,19 +9,31 @@ import {
 } from "react-native";
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
-import * as Location from "expo-location"; // Import location package
-import { useNavigation } from "@react-navigation/native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import * as Location from "expo-location";
 import { router } from "expo-router";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3"; // AWS SDK for S3
+import * as FileSystem from "expo-file-system";
+import "react-native-get-random-values"; // Required for UUID and crypto support
+import { Buffer } from "buffer";
+
+import { BUCKET_NAME, REGION, ACCESS_KEY, SECRET_KEY, USERNAME } from "@env";
 
 export default function CameraScreen() {
   const [facing, setFacing] = useState<CameraType>("back");
   const [permission, requestPermission] = useCameraPermissions();
+  const [camera, setCamera] = useState(null);
   const [locationPermission, setLocationPermission] = useState<boolean | null>(
     null
   );
-  const [camera, setCamera] = useState(null);
-  const navigation = useNavigation();
+
+  // Configure S3 client
+  const s3Client = new S3Client({
+    region: REGION,
+    credentials: {
+      accessKeyId: ACCESS_KEY,
+      secretAccessKey: SECRET_KEY,
+    },
+  });
 
   // Request camera and location permissions
   useEffect(() => {
@@ -49,25 +61,11 @@ export default function CameraScreen() {
     );
   }
 
-  // Function to toggle the camera (front/back)
-  function toggleCameraFacing() {
-    setFacing((current) => (current === "back" ? "front" : "back"));
-  }
-
-  // Function to take picture and get location
   const takePicture = async () => {
     if (camera) {
-      // Take a picture and save it
       const photo = await camera.takePictureAsync({ quality: 0.5 });
 
-      // Save to media library
-      const asset = await MediaLibrary.createAssetAsync(photo.uri);
-
-      Alert.alert("Image Capture", "Image succesfully captured");
-
       try {
-        await MediaLibrary.createAlbumAsync("Clicks", asset);
-
         // Get current location
         let locationData = null;
         if (locationPermission) {
@@ -78,51 +76,68 @@ export default function CameraScreen() {
           }
         }
 
-        // Construct metadata message
-        const metadataMessage = `
-          Filename: ${asset.filename}
-          Creation Time: ${new Date().toString()}
-          Location: ${
-            locationData
-              ? `Lat: ${locationData.coords.latitude}, Lon: ${locationData.coords.longitude}`
-              : "Not available"
+        // Convert image to binary
+        const fileBase64 = await FileSystem.readAsStringAsync(photo.uri, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+        const fileBinary = Buffer.from(fileBase64, "base64");
+
+        const fileKey = `users/${new Date().toISOString()}.jpg`;
+
+        const uploadParams = {
+          Bucket: BUCKET_NAME,
+          Key: fileKey,
+          Body: fileBinary,
+          Metadata: {
+            username: USERNAME,
+            timestamp: new Date().toISOString(),
+            lat: locationData ? String(locationData.coords.latitude) : "NA",
+            lon: locationData ? String(locationData.coords.longitude) : "NA",
+            // Location: locationData
+            //   ? `Lat: ${locationData.coords.latitude}, Lon: ${locationData.coords.longitude}`
+            //   : "Not available",
+          },
+          ContentType: "image/jpeg",
+        };
+
+        const command = new PutObjectCommand(uploadParams);
+        try {
+          const response = await s3Client.send(command);
+          if (response.$response.httpResponse.statusCode === 200) {
+            Alert.alert(
+              "Upload Success",
+              "Image uploaded to AWS S3 successfully."
+            );
+          } else {
+            console.log("Upload response error:", response);
+            Alert.alert("Upload Error", "Unexpected response from AWS S3.");
           }
-          Dimensions: ${photo.width}x${photo.height}
-        `;
+        } catch (error) {
+          // console.error("Error uploading image:", error);
+          // Alert.alert("Upload Failed", "Could not upload image to AWS S3.");
+          console.log(error);
+        }
 
-        // Show metadata as alert
-        Alert.alert("Image Metadata", metadataMessage, [{ text: "OK" }]);
-
-        router.replace("home");
+        Alert.alert("Upload Success", "Image uploaded to AWS S3 successfully.");
       } catch (error) {
-        console.log("Error creating album or fetching metadata:", error);
+        // console.error("Error uploading image:", error);
+        // Alert.alert("Upload Failed", "Could not upload image to AWS S3.");
+        console.log(error);
       }
+
+      router.replace("home");
     }
   };
 
   return (
     <View style={{ flex: 1, justifyContent: "center" }}>
       <CameraView style={{ flex: 1 }} facing={facing} ref={setCamera}>
-        <Pressable
-          className="absolute top-0 right-0 m-4 bg-black rounded-full"
-          onPress={() => {
-            router.replace("home");
-          }}
-        >
-          <MaterialIcons name="cancel" size={26} color="white" />
-        </Pressable>
         <View className="flex-row flex-1 justify-center items-end pb-12">
           <TouchableOpacity
             className="text-center bg-emerald-600 py-4 px-6 rounded-2xl"
             onPress={takePicture}
           >
             <Text className="font-bold text-white text-xl">Take Picture</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            className="ml-4 bg-red-500 p-4 rounded-full"
-            onPress={toggleCameraFacing}
-          >
-            <Ionicons name="camera-reverse-sharp" size={24} color="white" />
           </TouchableOpacity>
         </View>
       </CameraView>

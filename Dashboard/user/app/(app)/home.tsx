@@ -46,7 +46,7 @@ export default function Home() {
     router.replace("camera");
   };
 
-  console.log("userData: ", user);
+  // console.log("userData: ", user);
   return (
     <ScrollView className="flex-1 bg-white px-5 py-2">
       <View
