@@ -46,7 +46,7 @@ export default function Home() {
     router.replace("camera");
   };
 
-  console.log("userData: ", user);
+  // console.log("userData: ", user);
   return (
     <ScrollView className="flex-1 bg-white px-5 py-2">
       <View
@@ -100,12 +100,12 @@ export default function Home() {
       <UserGreeting user={user} />
 
       {/* Camera Redirect */}
-      <View className="mt-6 items-center">
+      <View className="mt-10 items-center">
         <TouchableOpacity
-          className="bg-red-600 px-5 py-5 rounded-full"
+          className="bg-red-600 p-8 rounded-full"
           onPress={takePicture}
         >
-          <MaterialIcons name="camera-alt" size={hp(14)} color="white" />
+          <MaterialIcons name="camera-alt" size={hp(10)} color="white" />
         </TouchableOpacity>
       </View>
 

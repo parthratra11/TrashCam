@@ -10,5 +10,16 @@ module.exports = function (api) {
     //   "expo-router/babel",
     //   "react-native-reanimated/plugin",
     // ],
+    plugins: [
+      [
+        "module:react-native-dotenv",
+        {
+          moduleName: "@env",
+          path: ".env",
+          safe: false,
+          allowUndefined: true,
+        },
+      ],
+    ],
   };
 };

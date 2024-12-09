@@ -110,7 +110,9 @@ export default function LocationDropdown({
             onChangeText={setCustomCity}
           />
         ) : (
-          <Text style={styles.currentCityText}>{currentCity}</Text>
+          <Text style={styles.currentCityText} className="ml-1">
+            {currentCity}
+          </Text>
         )}
         {!manualInput && (
           <SelectDropdown
