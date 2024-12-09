@@ -7,7 +7,7 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useAuth } from "@/context/authContext";
 import {
   AntDesign,
@@ -35,7 +35,8 @@ import ManualLocation from "../AppComponents/Home/manualLocation";
 export default function Home() {
   const { logout, user } = useAuth();
   const [manualInput, setManualInput] = useState(false);
-  const [customCity, setCustomCity] = useState("");
+  // const [customCity, setCustomCity] = useState("");.
+  const customCity = useRef("");
 
   const handleLogout = async () => {
     await logout();
@@ -55,6 +56,7 @@ export default function Home() {
           justifyContent: "space-between",
           backgroundColor: "white",
         }}
+        className="border-b-hairline pb-2"
       >
         {/* Logo */}
         <Image source={UrbanEco} style={{ width: wp(40), height: hp(7) }} />
@@ -68,16 +70,17 @@ export default function Home() {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          marginTop: 15,
-          marginHorizontal: 5,
+          marginTop: 10,
+          marginHorizontal: 2,
         }}
+        // className="border-b-hairline pb-2"
       >
         {/* Location */}
         <LocationDropdown
           manualInput={manualInput}
           setManualInput={setManualInput}
           customCity={customCity}
-          setCustomCity={setCustomCity}
+          // setCustomCity={setCustomCity}
         />
 
         {/* Notifications */}
@@ -86,23 +89,23 @@ export default function Home() {
 
       {/* TODO: Manual Location Input */}
       {/* TODO: Use reference instead of state */}
-      <ManualLocation
+      {/* <ManualLocation
         manualInput={manualInput}
         setManualInput={setManualInput}
         customCity={customCity}
-        setCustomCity={setCustomCity}
-      />
+        // setCustomCity={setCustomCity}
+      /> */}
 
       {/* User Greeting */}
       <UserGreeting user={user} />
 
       {/* Camera Redirect */}
-      <View className="mt-5 items-center">
+      <View className="mt-6 items-center">
         <TouchableOpacity
           className="bg-red-600 px-5 py-5 rounded-full"
           onPress={takePicture}
         >
-          <MaterialIcons name="camera-alt" size={hp(15)} color="white" />
+          <MaterialIcons name="camera-alt" size={hp(14)} color="white" />
         </TouchableOpacity>
       </View>
 
