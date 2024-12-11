@@ -7,7 +7,7 @@ const HeatMap = () => {
     //   <img src="/images/tempHeatMap.png" alt="Location Map" />
     // </div>
 
-    <div className="card border border-gray-400 w-full h-48 m-3 flex justify-center items-center overflow-clip hover:cursor-pointer">
+    <div className="card border border-gray-400 w-full h-48 flex justify-center items-center overflow-clip hover:cursor-pointer">
       <iframe
         src="/Maps/HeatMap.html"
         title="Heat Map"

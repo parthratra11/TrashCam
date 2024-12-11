@@ -1,0 +1,212 @@
+{
+  "reports": [
+    {
+      "id": "1",
+      "location": "Lajpat Nagar, Delhi-110024",
+      "coordinates": {
+        "lat": 28.5709,
+        "lng": 77.2373
+      },
+      "timestamp": "2024-01-20T14:30:00",
+      "reportingMode": "CCTV",
+      "status": "Pending",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-20T14:35:00",
+      "assignedDriver": "John Doe",
+      "assignedVehicle": "VAN KN-01-1234",
+      "imageURL": "https://images.unsplash.com/photo-1605600659908-0ef719419d41"
+    },
+    {
+      "id": "2",
+      "location": "Connaught Place, Delhi-110001",
+      "coordinates": {
+        "lat": 28.6289,
+        "lng": 77.2074
+      },
+      "timestamp": "2024-01-20T15:15:00",
+      "reportingMode": "Mobile App",
+      "status": "In Progress",
+      "reportedBy": "Citizen",
+      "lastUpdated": "2024-01-20T15:20:00",
+      "assignedDriver": "Jane Smith",
+      "assignedVehicle": "TRUCK DL-02-5678",
+      "imageURL": "https://images.unsplash.com/photo-1595278069441-2cf29f8005a4"
+    },
+    {
+      "id": "3",
+      "location": "Karol Bagh, Delhi-110005",
+      "coordinates": {
+        "lat": 28.6619,
+        "lng": 77.1905
+      },
+      "timestamp": "2024-01-20T16:00:00",
+      "reportingMode": "CCTV",
+      "status": "Resolved",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-20T16:45:00",
+      "assignedDriver": "Raj Kumar",
+      "assignedVehicle": "VAN HR-03-9012",
+      "imageURL": "https://images.unsplash.com/photo-1604187351574-c75ca79f5807"
+    },
+    {
+      "id": "4",
+      "location": "Chandni Chowk, Delhi-110006",
+      "coordinates": {
+        "lat": 28.6506,
+        "lng": 77.231
+      },
+      "timestamp": "2024-01-20T17:30:00",
+      "reportingMode": "Mobile App",
+      "status": "Pending",
+      "reportedBy": "Citizen",
+      "lastUpdated": "2024-01-20T17:35:00",
+      "assignedDriver": "Amit Singh",
+      "assignedVehicle": "TRUCK DL-04-7890",
+      "imageURL": "https://images.unsplash.com/photo-1599407950360-8b8642d423dc"
+    },
+    {
+      "id": "5",
+      "location": "Hauz Khas, Delhi-110016",
+      "coordinates": {
+        "lat": 28.5494,
+        "lng": 77.2001
+      },
+      "timestamp": "2024-01-20T18:00:00",
+      "reportingMode": "CCTV",
+      "status": "In Progress",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-20T18:15:00",
+      "assignedDriver": "Priya Sharma",
+      "assignedVehicle": "VAN UP-05-4321",
+      "imageURL": "https://images.unsplash.com/photo-1562077772-3bd54f5b0377"
+    },
+    {
+      "id": "6",
+      "location": "Dwarka, Delhi-110075",
+      "coordinates": {
+        "lat": 28.5921,
+        "lng": 77.046
+      },
+      "timestamp": "2024-01-20T19:00:00",
+      "reportingMode": "Mobile App",
+      "status": "Resolved",
+      "reportedBy": "Citizen",
+      "lastUpdated": "2024-01-20T19:45:00",
+      "assignedDriver": "Sanjay Verma",
+      "assignedVehicle": "TRUCK DL-06-1357",
+      "imageURL": "https://images.unsplash.com/photo-1591113045771-c96ef9c3e075"
+    },
+    {
+      "id": "7",
+      "location": "Rohini, Delhi-110085",
+      "coordinates": {
+        "lat": 28.741,
+        "lng": 77.052
+      },
+      "timestamp": "2024-01-20T20:00:00",
+      "reportingMode": "CCTV",
+      "status": "Pending",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-20T20:05:00",
+      "assignedDriver": "Vikram Malhotra",
+      "assignedVehicle": "VAN DL-07-9876",
+      "imageURL": "https://images.unsplash.com/photo-1587613864521-abf30daf7d29"
+    },
+    {
+      "id": "8",
+      "location": "Pitampura, Delhi-110034",
+      "coordinates": {
+        "lat": 28.7091,
+        "lng": 77.1317
+      },
+      "timestamp": "2024-01-20T21:00:00",
+      "reportingMode": "Mobile App",
+      "status": "In Progress",
+      "reportedBy": "Citizen",
+      "lastUpdated": "2024-01-20T21:15:00",
+      "assignedDriver": "Neha Gupta",
+      "assignedVehicle": "TRUCK DL-08-2468",
+      "imageURL": "https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9"
+    },
+    {
+      "id": "9",
+      "location": "Vasant Kunj, Delhi-110070",
+      "coordinates": {
+        "lat": 28.5253,
+        "lng": 77.156
+      },
+      "timestamp": "2024-01-20T22:00:00",
+      "reportingMode": "CCTV",
+      "status": "Resolved",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-20T22:30:00",
+      "assignedDriver": "Rahul Khanna",
+      "assignedVehicle": "VAN HR-09-1111",
+      "imageURL": "https://images.unsplash.com/photo-1589369139277-820d65108060"
+    },
+    {
+      "id": "10",
+      "location": "Mayur Vihar, Delhi-110091",
+      "coordinates": {
+        "lat": 28.609,
+        "lng": 77.2894
+      },
+      "timestamp": "2024-01-20T23:00:00",
+      "reportingMode": "Mobile App",
+      "status": "Pending",
+      "reportedBy": "Citizen",
+      "lastUpdated": "2024-01-20T23:05:00",
+      "assignedDriver": "Ankit Patel",
+      "assignedVehicle": "TRUCK UP-10-5555",
+      "imageURL": "https://images.unsplash.com/photo-1587502537745-84b86da1204f"
+    },
+    {
+      "id": "11",
+      "location": "Saket, Delhi-110017",
+      "coordinates": {
+        "lat": 28.5244,
+        "lng": 77.2167
+      },
+      "timestamp": "2024-01-21T00:00:00",
+      "reportingMode": "CCTV",
+      "status": "In Progress",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-21T00:15:00",
+      "assignedDriver": "Ravi Shankar",
+      "assignedVehicle": "VAN DL-11-7777",
+      "imageURL": "https://images.unsplash.com/photo-1587502536541-6c10ca7a7dfb"
+    },
+    {
+      "id": "12",
+      "location": "Greater Kailash, Delhi-110048",
+      "coordinates": {
+        "lat": 28.5439,
+        "lng": 77.239
+      },
+      "timestamp": "2024-01-21T01:00:00",
+      "reportingMode": "Mobile App",
+      "status": "Resolved",
+      "reportedBy": "Citizen",
+      "lastUpdated": "2024-01-21T01:45:00",
+      "assignedDriver": "Meera Reddy",
+      "assignedVehicle": "TRUCK DL-12-8888",
+      "imageURL": "https://images.unsplash.com/photo-1587502537685-c783c5de9c3f"
+    },
+    {
+      "id": "13",
+      "location": "Rajouri Garden, Delhi-110027",
+      "coordinates": {
+        "lat": 28.6472,
+        "lng": 77.118
+      },
+      "timestamp": "2024-01-21T02:00:00",
+      "reportingMode": "CCTV",
+      "status": "Pending",
+      "reportedBy": "System",
+      "lastUpdated": "2024-01-21T02:05:00",
+      "assignedDriver": "Suresh Kumar",
+      "assignedVehicle": "VAN DL-13-9999",
+      "imageURL": "https://images.unsplash.com/photo-1587502536176-6c7d8c35d7f2"
+    }
+  ]
+}

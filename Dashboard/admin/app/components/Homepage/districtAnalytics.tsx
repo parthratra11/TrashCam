@@ -1,13 +1,14 @@
 import React from "react";
 
-const DroneInspection = () => {
+const DistrictAnalytics = () => {
   return (
     <div className="card w-full">
       <button className="btn btn-ghost text-lg bg-primary text-white font-roboto hover:bg-secondary">
-        Drone Inspection
+        {/* FIX THIS   */}
+        District Analytics
       </button>
     </div>
   );
 };
 
-export default DroneInspection;
+export default DistrictAnalytics;

@@ -4,14 +4,16 @@ import UrbanEcoLogo from "./components/urbanEcoLogo";
 import SearchBox from "./components/Homepage/Header/searchBox";
 import LocationDropdown from "./components/Homepage/Header/locationDropdown";
 import NotificationIcon from "./components/Homepage/Header/notificationIcon";
-import DroneInspection from "./components/Homepage/droneInspection";
+import DroneInspection from "./components/Homepage/districtAnalytics";
 import LocationMap from "./components/Homepage/MapRedirect/locationMap";
 import HeatMap from "./components/Homepage/MapRedirect/heatMap";
 import ViewReport from "./components/Homepage/viewReport";
 import IndividualReportDetails from "./components/Homepage/individualReportDetails";
 import ReportsOverview from "./components/Homepage/reportsOverview";
 import "./components/Homepage/header.css";
-import HelpMenu from "./components/Homepage/Header/helpMenu";
+import HelpMenu from "./components/Homepage/Header/logout";
+import Logout from "./components/Homepage/Header/logout";
+import DistrictAnalytics from "./components/Homepage/districtAnalytics";
 
 const Dashboard = () => {
   return (
@@ -22,9 +24,10 @@ const Dashboard = () => {
         <header className="navbar bg-accent shadow-sm homepageHeader rounded-md">
           <UrbanEcoLogo />
           <SearchBox />
-          <LocationDropdown />
+          {/* <LocationDropdown /> */}
+          <div></div>
           <NotificationIcon />
-          <HelpMenu />
+          <Logout />
         </header>
 
         {/* MAIN-DASHBOARD */}
@@ -51,28 +54,30 @@ const Dashboard = () => {
                 "Dwarka, Delhi-110075",
                 "Rohini, Delhi-110037",
                 "Central Secretariat, Delhi-110069",
-              ].map((location, index) => (
-                <div
-                  className={`flex flex-row h-10 shadow-md shadow-gray-400 justify-between items-center p-1 mb-3 ${
-                    index % 2 === 0 ? "bg-base-300" : "bg-base-200"
-                  }`}
-                >
-                  <span className="ml-2 font-sans font-medium text-sm">
-                    {location}
-                  </span>
+              ]
+                .slice(0, 7)
+                .map((location, index) => (
+                  <div
+                    className={`flex flex-row h-10 shadow-md shadow-gray-400 justify-between items-center p-1 mb-3 ${
+                      index % 2 === 0 ? "bg-base-300" : "bg-base-200"
+                    }`}
+                  >
+                    <span className="ml-2 font-sans font-medium text-sm">
+                      {location}
+                    </span>
 
-                  {/* DETAILS REDIRECT */}
-                  <IndividualReportDetails />
-                </div>
-              ))}
+                    {/* DETAILS REDIRECT */}
+                    <IndividualReportDetails />
+                  </div>
+                ))}
             </div>
           </div>
           {/* COLUMN 2 */}
-          <div className=" flex flex-col justify-between items-center p-1">
+          <div className=" flex flex-col justify-between items-center p-1 sticky top-0">
             <ViewReport />
             <HeatMap />
             <LocationMap />
-            <DroneInspection />
+            <DistrictAnalytics />
           </div>
         </div>
       </div>

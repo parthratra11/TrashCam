@@ -2,11 +2,11 @@ import React from "react";
 
 const ViewReport = () => {
   return (
-    <div className="border border-gray-500 w-full font-roboto font-semibold pr-2 pl-4 card flex flex-row p-2 justify-between items-center">
+    <div className=" w-full font-roboto font-semibold pr-2 pl-4 card flex flex-row p-2 justify-between items-center">
       Hotspot Areas
-      <button className="btn btn-ghost bg-primary text-white hover:bg-secondary">
+      {/* <button className="btn btn-ghost bg-primary text-white hover:bg-secondary">
         View Report
-      </button>
+      </button> */}
     </div>
   );
 };
