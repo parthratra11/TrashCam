@@ -29,7 +29,7 @@ def getBadge():
 # print(getBadge())
 if getBadge() == 'gold':
 
-    ACCESS_TOKEN = "EAANXxVEhNnwBO9cXoJNKOztfAjZAaZC4wYvxdBZCIC2xZCC7ZBubyOa4ZAiD3JXZBnZCZCug5yPiAzOEaf7agPi4gwI1qZALU5gw1hSegUXFYqcAJZAAikZBLezexPZCAGXJtBCmpFGizFClxyfj8GbY2O7SIiAwr5ZCZB3jeF7Km40hRHzlZBGrK6pt32oDh22DJH3uZAMQa1DD1scVGZBGWbUWX2rZAZCrDtTUUiPhEzFheT6F"  # Replace with your actual access token
+    ACCESS_TOKEN = ""  # Replace with your actual access token
     FB_PAGE_ID = "457120094155881"      # FACEBOOK ID
     IG_USER_ID = "17841470441624256"    # INSTAGRAM BUSINESS ACCOUNT ID
     IMAGE_URL = "https://trashcambucket.s3.us-east-1.amazonaws.com/userDetected/a567940c61eb580455d8f886f55d21b1.jpg"  

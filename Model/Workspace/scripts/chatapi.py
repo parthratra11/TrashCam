@@ -81,7 +81,7 @@ def plot_route(route_info, coord_string=None):
     route_map.save("route_map.html")
 
 if __name__ == "__main__":
-    API_KEY = "f7c2378b067c459693c0cb71bd47869b"  
+    API_KEY = ""  
     route_info = get_route(API_KEY)
     
     if isinstance(route_info, dict):

@@ -43,7 +43,7 @@ nextButton = driver.find_element(By.XPATH, "//span[text()='Next']")
 nextButton.click()
 
 passwordInput = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[autocomplete='current-password']")))
-passwordInput.send_keys('sih@2024')
+passwordInput.send_keys('')
 
 loginButton = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Log in']")))
 loginButton.click()
