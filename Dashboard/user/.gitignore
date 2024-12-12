@@ -38,4 +38,5 @@ yarn-error.*
 app-example
 
 firebase-config.json
+firebase-config2.json
 .env

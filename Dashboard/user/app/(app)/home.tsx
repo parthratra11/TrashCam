@@ -29,8 +29,7 @@ import LocationDropdown from "../AppComponents/Home/locationDropdown";
 import Notifications from "../AppComponents/Home/notifications";
 import UserGreeting from "../AppComponents/Home/userGreeting";
 import ManualLocation from "../AppComponents/Home/manualLocation";
-
-//! IMPLEMENT GUEST LOGIN TOO
+import UserProfile from "../AppComponents/Home/userProfile";
 
 export default function Home() {
   const { logout, user } = useAuth();
@@ -58,11 +57,15 @@ export default function Home() {
         }}
         className="border-b-hairline pb-2"
       >
-        {/* Logo */}
+        {/* LOGO */}
         <Image source={UrbanEco} style={{ width: wp(40), height: hp(7) }} />
+        <View className="flex-row justify-center items-center">
+          {/* LOGOUT BUTTON */}
+          <Logout handleLogout={handleLogout} />
 
-        {/* Logout Button */}
-        <Logout handleLogout={handleLogout} />
+          {/* USER PROFILE */}
+          <UserProfile />
+        </View>
       </View>
 
       <View
@@ -75,7 +78,7 @@ export default function Home() {
         }}
         // className="border-b-hairline pb-2"
       >
-        {/* Location */}
+        {/* LOCATION */}
         <LocationDropdown
           manualInput={manualInput}
           setManualInput={setManualInput}
@@ -83,12 +86,11 @@ export default function Home() {
           // setCustomCity={setCustomCity}
         />
 
-        {/* Notifications */}
+        {/* NOTIFICATIONS */}
         <Notifications />
       </View>
 
       {/* TODO: Manual Location Input */}
-      {/* TODO: Use reference instead of state */}
       {/* <ManualLocation
         manualInput={manualInput}
         setManualInput={setManualInput}
@@ -96,10 +98,10 @@ export default function Home() {
         // setCustomCity={setCustomCity}
       /> */}
 
-      {/* User Greeting */}
+      {/* USER GREETING */}
       <UserGreeting user={user} />
 
-      {/* Camera Redirect */}
+      {/* CAMERA REDIRECT */}
       <View className="mt-10 items-center">
         <TouchableOpacity
           className="bg-red-600 p-8 rounded-full"

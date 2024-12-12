@@ -50,6 +50,7 @@ export const AuthContextProvider = ({ children }) => {
         ...prevUser,
         username: data.username,
         userId: data.userId,
+        analytics: data.analytics,
       }));
     }
   };

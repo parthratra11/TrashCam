@@ -1,0 +1,256 @@
+{
+  "drivers": [
+    {
+      "id": 1,
+      "name": "Rajesh Kumar",
+      "vanDetails": "DL-12-AB1234",
+      "assignedReports": [
+        {
+          "id": "REP-001",
+          "status": "pending",
+          "location": "Karol Bagh",
+          "reportedOn": "2024-01-10 14:45"
+        },
+        {
+          "id": "REP-002",
+          "status": "resolved",
+          "location": "Connaught Place",
+          "reportedOn": "2024-01-09 11:30"
+        },
+        {
+          "id": "REP-003",
+          "status": "pending",
+          "location": "Chandni Chowk",
+          "reportedOn": "2024-01-10 09:15"
+        },
+        {
+          "id": "REP-004",
+          "status": "resolved",
+          "location": "Paharganj",
+          "reportedOn": "2024-01-10 16:30"
+        },
+        {
+          "id": "REP-005",
+          "status": "pending",
+          "location": "Hauz Khas",
+          "reportedOn": "2024-01-10 17:00"
+        }
+      ],
+      "historicalData": {
+        "totalResolved": 156,
+        "avgResolutionTime": "2.5 hours",
+        "monthlyEfficiency": "94%"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Pratap Singh",
+      "vanDetails": "DL-12-CD5678",
+      "assignedReports": [
+        {
+          "id": "REP-006",
+          "status": "resolved",
+          "location": "Janakpuri",
+          "reportedOn": "2024-01-10 13:20"
+        },
+        {
+          "id": "REP-007",
+          "status": "resolved",
+          "location": "Dwarka",
+          "reportedOn": "2024-01-10 10:45"
+        },
+        {
+          "id": "REP-008",
+          "status": "pending",
+          "location": "Mayur Vihar",
+          "reportedOn": "2024-01-10 15:20"
+        },
+        {
+          "id": "REP-009",
+          "status": "resolved",
+          "location": "Noida",
+          "reportedOn": "2024-01-10 16:45"
+        },
+        {
+          "id": "REP-010",
+          "status": "pending",
+          "location": "Ghaziabad",
+          "reportedOn": "2024-01-10 18:00"
+        }
+      ],
+      "historicalData": {
+        "totalResolved": 189,
+        "avgResolutionTime": "2.1 hours",
+        "monthlyEfficiency": "96%"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Mohammed Ali",
+      "vanDetails": "DL-12-EF9012",
+      "assignedReports": [
+        {
+          "id": "REP-011",
+          "status": "pending",
+          "location": "Okhla",
+          "reportedOn": "2024-01-10 15:30"
+        },
+        {
+          "id": "REP-012",
+          "status": "pending",
+          "location": "Kalkaji",
+          "reportedOn": "2024-01-10 16:00"
+        },
+        {
+          "id": "REP-013",
+          "status": "resolved",
+          "location": "Saket",
+          "reportedOn": "2024-01-10 14:15"
+        },
+        {
+          "id": "REP-014",
+          "status": "pending",
+          "location": "Vasant Vihar",
+          "reportedOn": "2024-01-10 17:30"
+        },
+        {
+          "id": "REP-015",
+          "status": "resolved",
+          "location": "RK Puram",
+          "reportedOn": "2024-01-10 18:45"
+        }
+      ],
+      "historicalData": {
+        "totalResolved": 134,
+        "avgResolutionTime": "2.8 hours",
+        "monthlyEfficiency": "92%"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Suresh Patel",
+      "vanDetails": "DL-12-JK7890",
+      "assignedReports": [
+        {
+          "id": "REP-021",
+          "status": "pending",
+          "location": "Pitampura",
+          "reportedOn": "2024-01-10 11:00"
+        },
+        {
+          "id": "REP-022",
+          "status": "resolved",
+          "location": "Rohini",
+          "reportedOn": "2024-01-10 13:45"
+        },
+        {
+          "id": "REP-023",
+          "status": "pending",
+          "location": "Model Town",
+          "reportedOn": "2024-01-10 15:00"
+        },
+        {
+          "id": "REP-024",
+          "status": "resolved",
+          "location": "Kirti Nagar",
+          "reportedOn": "2024-01-10 16:15"
+        },
+        {
+          "id": "REP-025",
+          "status": "pending",
+          "location": "Rajouri Garden",
+          "reportedOn": "2024-01-10 17:45"
+        }
+      ],
+      "historicalData": {
+        "totalResolved": 145,
+        "avgResolutionTime": "2.6 hours",
+        "monthlyEfficiency": "93%"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Rajesh Sharma",
+      "vanDetails": "DL-12-MN2468",
+      "assignedReports": [
+        {
+          "id": "REP-026",
+          "status": "pending",
+          "location": "Sarita Vihar",
+          "reportedOn": "2024-01-10 10:30"
+        },
+        {
+          "id": "REP-027",
+          "status": "resolved",
+          "location": "Narela",
+          "reportedOn": "2024-01-10 12:00"
+        },
+        {
+          "id": "REP-028",
+          "status": "pending",
+          "location": "Mundka",
+          "reportedOn": "2024-01-10 14:45"
+        },
+        {
+          "id": "REP-029",
+          "status": "resolved",
+          "location": "Uttam Nagar",
+          "reportedOn": "2024-01-10 16:00"
+        },
+        {
+          "id": "REP-030",
+          "status": "pending",
+          "location": "Dwarka Sector 9",
+          "reportedOn": "2024-01-10 17:30"
+        }
+      ],
+      "historicalData": {
+        "totalResolved": 178,
+        "avgResolutionTime": "2.2 hours",
+        "monthlyEfficiency": "97%"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Ravi Gupta",
+      "vanDetails": "DL-12-PQ1234",
+      "assignedReports": [
+        {
+          "id": "REP-031",
+          "status": "pending",
+          "location": "Nehru Place",
+          "reportedOn": "2024-01-10 14:45"
+        },
+        {
+          "id": "REP-032",
+          "status": "resolved",
+          "location": "Saket",
+          "reportedOn": "2024-01-09 11:30"
+        },
+        {
+          "id": "REP-033",
+          "status": "pending",
+          "location": "Malviya Nagar",
+          "reportedOn": "2024-01-10 09:15"
+        },
+        {
+          "id": "REP-034",
+          "status": "resolved",
+          "location": "Greater Kailash",
+          "reportedOn": "2024-01-10 16:30"
+        },
+        {
+          "id": "REP-035",
+          "status": "pending",
+          "location": "Defence Colony",
+          "reportedOn": "2024-01-10 17:00"
+        }
+      ],
+      "historicalData": {
+        "totalResolved": 156,
+        "avgResolutionTime": "2.5 hours",
+        "monthlyEfficiency": "94%"
+      }
+    }
+  ]
+}

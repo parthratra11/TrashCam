@@ -103,12 +103,13 @@ export default function LocationDropdown({
             style={styles.loadingIndicator}
           />
         ) : manualInput ? (
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Location"
-            value={customCity}
-            onChangeText={setCustomCity}
-          />
+          // <TextInput
+          //   style={styles.input}
+          //   placeholder="Enter Location"
+          //   value={customCity}
+          //   onChangeText={setCustomCity}
+          // />
+          <Text className="pl-2">No location detected</Text>
         ) : (
           <Text style={styles.currentCityText} className="ml-1">
             {currentCity}

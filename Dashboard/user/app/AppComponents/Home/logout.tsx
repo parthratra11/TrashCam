@@ -34,7 +34,7 @@ export default function Logout({ handleLogout }) {
           marginBottom: 4,
           width: wp(20),
         }}
-        className="bg-emerald-600"
+        className="bg-emerald-600 mr-2"
         onPress={confirmLogout} // Use confirmLogout instead of handleLogout
       >
         <Text

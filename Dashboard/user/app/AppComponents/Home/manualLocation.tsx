@@ -41,7 +41,7 @@ export default function ManualLocation({
 
   return (
     <View style={styles.manualInputContainer}>
-      <TextInput
+      {/* <TextInput
         style={styles.input}
         placeholder="Enter your location"
         value={customCity}
@@ -54,7 +54,8 @@ export default function ManualLocation({
         onPress={handleManualSubmit}
       >
         <Text style={styles.submitButtonText}>Submit</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <Text>No location detected</Text>
     </View>
   );
 }

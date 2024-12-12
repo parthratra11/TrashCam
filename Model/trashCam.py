@@ -1,3 +1,5 @@
+# OLD SCRIPT
+
 from ultralytics import YOLO
 import cv2, cvzone
 import math, os, csv, geocoder, folium 

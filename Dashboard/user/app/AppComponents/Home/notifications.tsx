@@ -24,6 +24,16 @@ import {
 // Notification data based on past reports
 const getNotifications = () => [
   {
+    id: "6",
+    time: "11:00",
+    date: "05 Sep, 2024",
+    location: "Kamla Nagar, Delhi",
+    status: "upcoming",
+    reportType: "Public Drive",
+    details:
+      "A public cleanliness drive will be conducted in Kamla Nagar on 10 Sep, 2024. Join us to make a difference!",
+  },
+  {
     id: "1",
     time: "16:15",
     date: "04 Sep, 2024",
@@ -31,6 +41,16 @@ const getNotifications = () => [
     status: "pending",
     reportType: "Environmental Survey",
     details: "Your report for Kamla Nagar is pending review.",
+  },
+  {
+    id: "7",
+    time: "14:30",
+    date: "03 Sep, 2024",
+    location: "Rajouri Garden, Delhi",
+    status: "upcoming",
+    reportType: "Campaign",
+    details:
+      "An awareness campaign on sustainable waste management is scheduled for 07 Sep, 2024 at Rajouri Garden.",
   },
   {
     id: "2",
@@ -82,6 +102,11 @@ const statusConfig = {
     color: "green",
     icon: (size) => <AntDesign name="checkcircle" size={size} color="green" />,
     textColor: "green",
+  },
+  upcoming: {
+    color: "#FF9800",
+    icon: (size) => <Feather name="alert-circle" size={size} color="#FF9800" />,
+    textColor: "#FF9800",
   },
 };
 
