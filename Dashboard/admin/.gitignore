@@ -38,3 +38,5 @@ next-env.d.ts
 app/tempPage.tsx
 
 firebase-config.json
+
+.env

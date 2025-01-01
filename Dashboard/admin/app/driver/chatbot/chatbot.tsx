@@ -112,7 +112,7 @@ const ChatBot = () => {
 
   // Initialize Gemini API
   const genAI = new GoogleGenerativeAI(
-    "" //API KEY
+    process.env.GEMINI_API //API KEY
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 

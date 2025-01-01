@@ -1,15 +1,33 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import reports from "../../../reports.json";
 import Navbar from "../components/Navbar";
 
 export default function Details() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DetailsContent />
+    </Suspense>
+  );
+}
+
+function DetailsContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  const report = reports.reports.find((r) => r.id === id);
+  const [report, setReport] = useState(null);
+
+  useEffect(() => {
+    const fetchReports = async () => {
+      const res = await fetch("/path/to/reports.json");
+      const data = await res.json();
+      const reportData = data.reports.find((r) => r.id === id);
+      setReport(reportData);
+    };
+
+    fetchReports();
+  }, [id]);
 
   if (!report) {
     return (
@@ -128,31 +146,22 @@ export default function Details() {
               </div>
             </div>
 
-            {/* Assignment Info */}
+            {/* Zonal Head Information */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <svg
-                  className="h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                </svg>
-                Assignment Details
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                Zonal Head Details
               </h2>
-
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span className="text-gray-700 font-semibold">Driver:</span>
-                  <span className="text-gray-600">Rakesh Kumar</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span className="text-gray-700 font-semibold">Vehicle:</span>
-                  <span className="text-gray-600">
-                    {report.assignedVehicle}
-                  </span>
-                </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <span className="text-gray-700 font-semibold block mb-1">
+                  Name:
+                </span>
+                <span className="text-gray-600">{report.zonalHead.name}</span>
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <span className="text-gray-700 font-semibold block mb-1">
+                  Age:
+                </span>
+                <span className="text-gray-600">{report.zonalHead.age}</span>
               </div>
             </div>
           </div>
@@ -188,44 +197,10 @@ export default function Details() {
                   <span className="text-gray-700 font-semibold block mb-1">
                     Last Updated:
                   </span>
-                  <span className="text-gray-600">{report.lastUpdated}</span>
-                </div>
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  <span className="text-gray-700 font-semibold block mb-1">
-                    Reporting Mode:
-                  </span>
-                  <span className="text-gray-600">{report.reportingMode}</span>
+                  <span className="text-gray-600">{report.updated}</span>
                 </div>
               </div>
             </div>
-
-            {/* Image Display */}
-            {/* <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <svg
-                  className="h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Site Image
-              </h2>
-              <div className="rounded-xl overflow-hidden shadow-sm">
-                <Image
-                  src={report.imageURL}
-                  alt="Waste Site"
-                  width={800}
-                  height={400}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
