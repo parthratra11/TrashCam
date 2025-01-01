@@ -3,9 +3,19 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import reports from "../../../reports.json";
-import Navbar from "../components/Navbar";
+import Navbar from "@/app/zonal-head/components/Navbar";
+import { Suspense } from "react";
+// import Navbar from "../components/Navbar";
 
 export default function Details() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DetailsContent />
+    </Suspense>
+  );
+}
+
+function DetailsContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
