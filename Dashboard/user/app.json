@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "YapYap",
-    "slug": "YapYap",
+    "name": "TrashCam",
+    "slug": "TrashCam",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
