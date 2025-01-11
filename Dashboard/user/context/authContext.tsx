@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
     // OnAuthStateChange Fn
 
     const unsub = onAuthStateChanged(auth, (user) => {
-      // console.log("user: ", user);
+      console.log("user: ", user);
 
       if (user) {
         setIsAuthenticated(true);
@@ -40,18 +40,12 @@ export const AuthContextProvider = ({ children }) => {
 
     if (docSnap.exists()) {
       let data = docSnap.data();
-      // setUser({
-      //   ...user,
-      //   username: data.username,
-      //   // profile: data.profileUrl,
-      //   userId: data.userId,
-      // });
-      setUser((prevUser) => ({
-        ...prevUser,
+      setUser({
+        ...user,
         username: data.username,
+        // profile: data.profileUrl,
         userId: data.userId,
-        analytics: data.analytics,
-      }));
+      });
     }
   };
 

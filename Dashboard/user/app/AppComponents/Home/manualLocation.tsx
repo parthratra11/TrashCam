@@ -16,7 +16,7 @@ export default function ManualLocation({
   manualInput,
   setManualInput,
   customCity,
-  //   setCustomCity,
+  setCustomCity,
   onCityChange, // New prop to handle city change
 }) {
   const handleManualSubmit = () => {
@@ -33,19 +33,18 @@ export default function ManualLocation({
     }
 
     setManualInput(false);
-    // setCustomCity("");
-    customCity = "";
+    setCustomCity("");
   };
 
   if (!manualInput) return null;
 
   return (
     <View style={styles.manualInputContainer}>
-      {/* <TextInput
+      <TextInput
         style={styles.input}
         placeholder="Enter your location"
         value={customCity}
-        onChangeText={(value) => (customCity.current = value)}
+        onChangeText={setCustomCity}
         returnKeyType="done"
         onSubmitEditing={handleManualSubmit}
       />
@@ -54,8 +53,7 @@ export default function ManualLocation({
         onPress={handleManualSubmit}
       >
         <Text style={styles.submitButtonText}>Submit</Text>
-      </TouchableOpacity> */}
-      <Text>No location detected</Text>
+      </TouchableOpacity>
     </View>
   );
 }

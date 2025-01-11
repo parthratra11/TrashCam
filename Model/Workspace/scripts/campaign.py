@@ -32,7 +32,7 @@ if getBadge() == 'gold':
     ACCESS_TOKEN = ""  # Replace with your actual access token
     FB_PAGE_ID = "457120094155881"      # FACEBOOK ID
     IG_USER_ID = "17841470441624256"    # INSTAGRAM BUSINESS ACCOUNT ID
-    IMAGE_URL = "https://trashcambucket.s3.us-east-1.amazonaws.com/userDetected/a567940c61eb580455d8f886f55d21b1.jpg"  
+    IMAGE_URL = "https://trashcambucket.s3.us-east-1.amazonaws.com/userDetected/WhatsApp+Image+2024-12-12+at+17.47.29_2d6f10ca.jpg"  
     CAPTION = f"""A public cleanliness drive will be conducted in Kamla Nagar on 10 Sep, 2024. Join us to make a difference!"""
 
     def validate_ig_account():

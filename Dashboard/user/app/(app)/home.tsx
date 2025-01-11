@@ -7,7 +7,7 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useState, useRef } from "react";
 import { useAuth } from "@/context/authContext";
 import {
   AntDesign,
@@ -29,13 +29,14 @@ import LocationDropdown from "../AppComponents/Home/locationDropdown";
 import Notifications from "../AppComponents/Home/notifications";
 import UserGreeting from "../AppComponents/Home/userGreeting";
 import ManualLocation from "../AppComponents/Home/manualLocation";
-import UserProfile from "../AppComponents/Home/userProfile";
+
+//! IMPLEMENT GUEST LOGIN TOO
 
 export default function Home() {
   const { logout, user } = useAuth();
   const [manualInput, setManualInput] = useState(false);
-  // const [customCity, setCustomCity] = useState("");.
-  const customCity = useRef("");
+  // const [customCity, setCustomCity] = useState("");
+  const customCity = useRef('')
 
   const handleLogout = async () => {
     await logout();
@@ -45,7 +46,7 @@ export default function Home() {
     router.replace("camera");
   };
 
-  // console.log("userData: ", user);
+  console.log("userData: ", user);
   return (
     <ScrollView className="flex-1 bg-white px-5 py-2">
       <View
@@ -55,17 +56,12 @@ export default function Home() {
           justifyContent: "space-between",
           backgroundColor: "white",
         }}
-        className="border-b-hairline pb-2"
       >
-        {/* LOGO */}
+        {/* Logo */}
         <Image source={UrbanEco} style={{ width: wp(40), height: hp(7) }} />
-        <View className="flex-row justify-center items-center">
-          {/* LOGOUT BUTTON */}
-          <Logout handleLogout={handleLogout} />
 
-          {/* USER PROFILE */}
-          <UserProfile />
-        </View>
+        {/* Logout Button */}
+        <Logout handleLogout={handleLogout} />
       </View>
 
       <View
@@ -73,12 +69,11 @@ export default function Home() {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          marginTop: 10,
-          marginHorizontal: 2,
+          marginTop: 15,
+          marginHorizontal: 5,
         }}
-        // className="border-b-hairline pb-2"
       >
-        {/* LOCATION */}
+        {/* Location */}
         <LocationDropdown
           manualInput={manualInput}
           setManualInput={setManualInput}
@@ -86,28 +81,29 @@ export default function Home() {
           // setCustomCity={setCustomCity}
         />
 
-        {/* NOTIFICATIONS */}
+        {/* Notifications */}
         <Notifications />
       </View>
 
       {/* TODO: Manual Location Input */}
-      {/* <ManualLocation
+      {/* TODO: Use reference instead of state */}
+      <ManualLocation
         manualInput={manualInput}
         setManualInput={setManualInput}
         customCity={customCity}
         // setCustomCity={setCustomCity}
-      /> */}
+      />
 
-      {/* USER GREETING */}
+      {/* User Greeting */}
       <UserGreeting user={user} />
 
-      {/* CAMERA REDIRECT */}
-      <View className="mt-10 items-center">
+      {/* Camera Redirect */}
+      <View className="mt-5 items-center">
         <TouchableOpacity
-          className="bg-red-600 p-8 rounded-full"
+          className="bg-red-600 px-5 py-5 rounded-full"
           onPress={takePicture}
         >
-          <MaterialIcons name="camera-alt" size={hp(10)} color="white" />
+          <MaterialIcons name="camera-alt" size={hp(15)} color="white" />
         </TouchableOpacity>
       </View>
 

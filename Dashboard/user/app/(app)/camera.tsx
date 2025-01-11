@@ -16,6 +16,8 @@ import * as FileSystem from "expo-file-system";
 import "react-native-get-random-values";
 import { Buffer } from "buffer";
 
+// import Config from "react-native-config";
+
 import { BUCKET_NAME, REGION, ACCESS_KEY, SECRET_KEY } from "@env";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -31,6 +33,8 @@ export default function CameraScreen() {
   );
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [uploading, setUploading] = useState(false);
+
+  // const { BUCKET_NAME, REGION, ACCESS_KEY, SECRET_KEY } = Config;
 
   // console.log(user);
 
@@ -80,75 +84,6 @@ export default function CameraScreen() {
   function toggleCameraFacing() {
     setFacing((current) => (current === "back" ? "front" : "back"));
   }
-
-  // const takePicture = async () => {
-  //   if (camera) {
-  //     const photo = await camera.takePictureAsync({ quality: 0.5 });
-  //     () => {
-  //       setUploading(true);
-  //     };
-
-  //     try {
-  //       // CURRENT LOCATION
-  //       let locationData = null;
-  //       if (locationPermission) {
-  //         try {
-  //           locationData = await Location.getCurrentPositionAsync({});
-  //         } catch (locationError) {
-  //           console.log("Could not get location:", locationError);
-  //         }
-  //       }
-
-  //       router.replace("home");
-
-  //       // IMG TO BINARY CONVERSION
-  //       const fileBase64 = await FileSystem.readAsStringAsync(photo.uri, {
-  //         encoding: FileSystem.EncodingType.Base64,
-  //       });
-  //       const fileBinary = Buffer.from(fileBase64, "base64");
-
-  //       const fileKey = `users/${currentDateTime
-  //         .toLocaleString()
-  //         .replace(", ", "-")
-  //         .replaceAll("/", ":")}.jpg`;
-
-  //       // UPLOAD PARAMETERS FOR AWS BUCKET
-  //       const uploadParams = {
-  //         Bucket: BUCKET_NAME,
-  //         Key: fileKey,
-  //         Body: fileBinary,
-  //         Metadata: {
-  //           type: "user",
-  //           username: String(user?.userId || "Unknown"),
-  //           timestamp: currentDateTime.toLocaleString().replace(", ", "-"),
-  //           lat: locationData ? String(locationData.coords.latitude) : "NA",
-  //           lon: locationData ? String(locationData.coords.longitude) : "NA",
-  //           status: String(false),
-  //           locality: "",
-  //           ContentType: "image/jpeg",
-  //         },
-  //       };
-
-  //       const command = new PutObjectCommand(uploadParams);
-  //       try {
-  //         const response = await s3Client.send(command);
-  //         if (response.$response.httpResponse.statusCode === 200) {
-  //           Alert.alert("Upload Success", "Image uploaded for verification.");
-  //         } else {
-  //           console.log("Upload response error:", response);
-  //           Alert.alert("Upload Error", "Unexpected response from AWS S3.");
-  //         }
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-
-  //       Alert.alert("Upload Success", "Image uploaded for verification.");
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  // };
-
   const takePicture = async () => {
     if (camera) {
       const photo = await camera.takePictureAsync({ quality: 0.5 });
