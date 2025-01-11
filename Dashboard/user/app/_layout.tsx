@@ -9,13 +9,15 @@ const MainLayout = () => {
   const segments = useSegments();
 
   useEffect(() => {
-    // USER AUTHENTICATION CHECK
+    // Check if user is authenticated or not
     if (typeof isAuthenticated == "undefined") return;
     const inApp = segments[0] == "(app)";
 
     if (isAuthenticated && !inApp) {
+      // redirect to home
       router.replace("home");
     } else if (isAuthenticated == false) {
+      // redirect to sign in page
       router.replace("signIn");
     }
   }, [isAuthenticated]);

@@ -35,28 +35,28 @@ export default function LocationDropdown({
 
   const fetchLocation = async () => {
     try {
-      //   LOCATION PERMISSIONS
+      // Request location permissions
       const { status } = await Location.requestForegroundPermissionsAsync();
 
       if (status !== "granted") {
-        // MANUAL INPUT INCASE LOCATION PERMISSION NOT ALLOWED
+        // If permission denied, switch to manual input
         setManualInput(true);
         setCurrentCity("Location Access Denied");
-        setLoading(false);
+        setLoading(false); // Set loading to false
         return;
       }
 
-      //   CURRENT LOCATION
+      // Get current location
       const { coords } = await Location.getCurrentPositionAsync({});
       const { latitude, longitude } = coords;
 
-      //   CITY FROM GEOCODE
+      // Reverse geocode to get the city
       const [location] = await Location.reverseGeocodeAsync({
         latitude,
         longitude,
       });
 
-      // PRIORITY ORDER: CITY > DISTRICT > COUNTRY
+      // Prioritize city, then district, then fallback to country
       const detectedCity =
         location.city ||
         location.district ||
@@ -64,13 +64,12 @@ export default function LocationDropdown({
         location.country ||
         "Unknown Location";
 
-      // UPDATE CITY AND SET LOADING TO FALSE
-      setCurrentCity(detectedCity);
-      setLoading(false);
+      setCurrentCity(detectedCity); // Update city
+      setLoading(false); // Set loading to false
     } catch (error) {
       console.error("Error fetching location:", error);
 
-      //   INCASE OF ERRORS
+      // If any error occurs during location fetching
       Alert.alert(
         "Location Error",
         "Unable to automatically detect location. Please enter manually."
@@ -78,8 +77,7 @@ export default function LocationDropdown({
 
       setManualInput(true);
       setCurrentCity("Select Location");
-      //   IN CASE OF ERROR
-      setLoading(false);
+      setLoading(false); // Set loading to false in case of error
     }
   };
 
@@ -89,13 +87,13 @@ export default function LocationDropdown({
 
   const toggleManualInput = () => {
     setManualInput(!manualInput);
-    setCustomCity("");
+    setCustomCity(""); // Reset customCity state
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.locationRow}>
-        <AntDesign name="enviroment" size={28} color="black" />
+        <AntDesign name="enviroment" size={24} color="black" />
         {loading ? (
           <ActivityIndicator
             size="small"
@@ -103,17 +101,14 @@ export default function LocationDropdown({
             style={styles.loadingIndicator}
           />
         ) : manualInput ? (
-          // <TextInput
-          //   style={styles.input}
-          //   placeholder="Enter Location"
-          //   value={customCity}
-          //   onChangeText={setCustomCity}
-          // />
-          <Text className="pl-2">No location detected</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter Location"
+            value={customCity}
+            onChangeText={setCustomCity} // Update the customCity state
+          />
         ) : (
-          <Text style={styles.currentCityText} className="ml-1">
-            {currentCity}
-          </Text>
+          <Text style={styles.currentCityText}>{currentCity}</Text>
         )}
         {!manualInput && (
           <SelectDropdown
@@ -133,14 +128,13 @@ export default function LocationDropdown({
             )}
           />
         )}
-        {/* TODO: Manual location input */}
-        {/* <TouchableOpacity onPress={toggleManualInput} style={styles.editButton}>
+        <TouchableOpacity onPress={toggleManualInput} style={styles.editButton}>
           <AntDesign
             name={manualInput ? "close" : "edit"}
             size={20}
             color="gray"
           />
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -148,12 +142,11 @@ export default function LocationDropdown({
 
 const styles = StyleSheet.create({
   container: {
-    margin: 0,
+    margin: 10,
   },
   locationRow: {
     flexDirection: "row",
     alignItems: "center",
-    // marginLeft: 2,
   },
   loadingIndicator: {
     marginHorizontal: 5,
@@ -178,7 +171,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    marginLeft: 5,
     fontSize: hp(2),
     color: "black",
   },
